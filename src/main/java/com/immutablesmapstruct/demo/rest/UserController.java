@@ -1,6 +1,6 @@
 package com.immutablesmapstruct.demo.rest;
 
-import com.immutablesmapstruct.demo.dao.model.User;
+import com.immutablesmapstruct.demo.dto.model.UserDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 public interface UserController {
 
     @GetMapping("/{id}")
-    User getUser(@PathVariable int id);
+    UserDto getUser(@PathVariable int id);
 
     @PostMapping("/create")
-    User createUser(@RequestBody User user);
+    UserDto createUser(@RequestBody UserDto userDto);
 
 }

@@ -1,21 +1,11 @@
 package com.immutablesmapstruct.demo.dao.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
-@JsonSerialize
-@JsonDeserialize(builder = User.Builder.class)
 public class User {
 
     // Primary Key. Something that is annotated with @Id
-    @JsonProperty
     private int id;
-    @JsonProperty
     private String username;
-    @JsonProperty
     private String email;
-    @JsonProperty
     private UserStatus userStatus;
 
     private User(Builder builder) {
@@ -25,7 +15,7 @@ public class User {
         userStatus = builder.userStatus;
     }
 
-    public static Builder newBuilder() {
+    public static Builder builder() {
         return new Builder();
     }
 
@@ -54,22 +44,22 @@ public class User {
         private Builder() {
         }
 
-        public Builder withId(int id) {
+        public Builder setId(int id) {
             this.id = id;
             return this;
         }
 
-        public Builder withUsername(String username) {
+        public Builder setUsername(String username) {
             this.username = username;
             return this;
         }
 
-        public Builder withEmail(String email) {
+        public Builder setEmail(String email) {
             this.email = email;
             return this;
         }
 
-        public Builder withUserStatus(UserStatus userStatus) {
+        public Builder setUserStatus(UserStatus userStatus) {
             this.userStatus = userStatus;
             return this;
         }

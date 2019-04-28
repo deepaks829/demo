@@ -1,6 +1,6 @@
 package com.immutablesmapstruct.demo.service;
 
-import com.immutablesmapstruct.demo.dao.model.User;
+import com.immutablesmapstruct.demo.dto.model.UserDto;
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface UserService {
-    User findById(int id);
-    User save(User user);
+    UserDto findById(int id);
+    UserDto save(UserDto userDto);
 }

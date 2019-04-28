@@ -1,6 +1,6 @@
 package com.immutablesmapstruct.demo.rest;
 
-import com.immutablesmapstruct.demo.dao.model.User;
+import com.immutablesmapstruct.demo.dto.model.UserDto;
 import com.immutablesmapstruct.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,12 +12,12 @@ public class UserControllerImpl implements UserController {
     UserService userService;
 
     @Override
-    public User getUser(int id) {
+    public UserDto getUser(int id) {
         return userService.findById(1);
     }
 
     @Override
-    public User createUser(User user) {
-        return userService.save(user);
+    public UserDto createUser(UserDto userDto) {
+        return userService.save(userDto);
     }
 }

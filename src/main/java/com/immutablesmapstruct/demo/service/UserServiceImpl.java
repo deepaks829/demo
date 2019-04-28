@@ -2,7 +2,10 @@ package com.immutablesmapstruct.demo.service;
 
 import com.immutablesmapstruct.demo.dao.model.User;
 import com.immutablesmapstruct.demo.dao.model.UserStatus;
+import com.immutablesmapstruct.demo.dto.model.UserDto;
 import org.springframework.stereotype.Service;
+
+import static com.immutablesmapstruct.demo.dto.mapper.UserMapper.USER_MAPPER_INSTANCE;
 
 /**
  * The business logic layer that depends on some Repository layer to perform database operations.
@@ -11,35 +14,30 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     @Override
-    public User findById(int id) {
+    public UserDto findById(int id) {
         // Assume database get Operation
-        final UserStatus userStatus = UserStatus.newBuilder()
-                .withId(1)
-                .withStatus(1)
-                .withStatusName("Active")
+        final UserStatus userStatus = UserStatus.builder()
+                .setId(1)
+                .setStatus(1)
+                .setStatusName("Active")
                 .build();
 
-        return User.newBuilder()
-                .withUsername("TestUser")
-                .withEmail("TestUser@demo.com")
-                .withUserStatus(userStatus)
+        User userDao = User.builder()
+                .setUsername("TestUser")
+                .setEmail("TestUser@demo.com")
+                .setUserStatus(userStatus)
                 .build();
+
+        return USER_MAPPER_INSTANCE.userDaoToDto(userDao);
+
     }
 
     @Override
-    public User save(User user) {
-        // Assume database Save Operation
-        final UserStatus userStatus = UserStatus.newBuilder()
-                .withId(user.getUserStatus().getId())
-                .withStatus(user.getUserStatus().getStatus())
-                .withStatusName(user.getUserStatus().getStatusName())
-                .build();
+    public UserDto save(UserDto userDto) {
+        User userDao = USER_MAPPER_INSTANCE.userDtoToDao(userDto);
 
-        return User.newBuilder()
-                .withId(1)
-                .withUsername(user.getUsername())
-                .withEmail(user.getEmail())
-                .withUserStatus(userStatus)
-                .build();
+        // Assume database Save Operation on userDao
+
+        return USER_MAPPER_INSTANCE.userDaoToDto(userDao);
     }
 }
