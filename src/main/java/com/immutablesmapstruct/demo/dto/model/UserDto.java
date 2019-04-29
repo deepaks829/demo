@@ -12,18 +12,18 @@ import org.immutables.value.Value;
 public abstract class UserDto {
 
     @Value.Default
-    @JsonProperty
-    public int id() {
+    @JsonProperty("id")
+    public int getId() {
         return 0;
     }
 
-    @JsonProperty
-    public abstract String username();
+    @JsonProperty("username")
+    public abstract String getUsername();
 
-    @JsonProperty
-    public abstract String email();
+    @JsonProperty("email")
+    public abstract String getEmail();
 
-    @JsonProperty
-    public abstract UserStatusDto userStatus();
+    @JsonProperty("userStatus")
+    public abstract UserStatusDto getUserStatus();
 
 }

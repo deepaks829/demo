@@ -11,13 +11,13 @@ import org.immutables.value.Value;
 @JsonDeserialize(builder = ImmutableUserStatusDto.Builder.class)
 public abstract class UserStatusDto {
 
-    @JsonProperty
-    public abstract int id();
+    @JsonProperty("id")
+    public abstract int getId();
 
-    @JsonProperty
-    public abstract int status();
+    @JsonProperty("status")
+    public abstract int getStatus();
 
-    @JsonProperty
-    public abstract String statusName();
+    @JsonProperty("statusName")
+    public abstract String getStatusName();
 
 }
