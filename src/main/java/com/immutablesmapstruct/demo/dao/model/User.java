@@ -7,7 +7,14 @@ public class User {
 
     // Primary Key. Something that is annotated with @Id
     private int id;
+    /**
+     * Unique Username for this user
+     */
     private String username;
+
+    /**
+     * Email address used for registration by this user
+     */
     private String email;
     private UserStatus userStatus;
 
