@@ -1,5 +1,8 @@
 package com.immutablesmapstruct.demo.dao.model;
 
+/**
+ * The user DAO
+ */
 public class User {
 
     // Primary Key. Something that is annotated with @Id
