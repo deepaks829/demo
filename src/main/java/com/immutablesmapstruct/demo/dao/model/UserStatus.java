@@ -34,6 +34,9 @@ public class UserStatus {
         return statusName;
     }
 
+    /**
+     * UserStatus builder
+     */
     public static final class Builder {
         private int id;
         private int status;
