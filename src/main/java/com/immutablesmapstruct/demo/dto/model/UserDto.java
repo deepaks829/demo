@@ -5,6 +5,9 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.immutables.value.Value;
 
+/**
+ * Immutable User DTO
+ */
 @Value.Immutable
 @Value.Style(defaults = @Value.Immutable(copy = false), init = "set*")
 @JsonSerialize(as = ImmutableUserDto.class)
